@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://gabrielanie.github.io/Gabrielanie",
+  "homepage": "https://gabrielanie.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --repo https://github.com/Gabrielanie/gabrielanie.github.io.git --branch main"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",
