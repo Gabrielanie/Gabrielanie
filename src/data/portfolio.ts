@@ -280,6 +280,7 @@ export const experience: Experience[] = [
     role: 'Freelance Web Developer & Digital Strategist',
     company: 'Self-Employed',
     period: '2018 – Present',
+    current: true,
     location: 'Remote · Worldwide',
     achievements: [
       'Running an independent practice spanning 8+ years, partnering with SMEs across Nigeria and the UK to deliver end-to-end digital solutions — from custom websites and e-commerce stores to payment integrations and brand strategy, serving as both a technical partner and digital advisor for growing businesses',
