@@ -24,7 +24,7 @@ export const personal = {
     email: 'mailto:younganiel@gmail.com',
   },
   stats: [
-    { value: '6fr+', label: 'Years Experience' },
+    { value: '6+', label: 'Years Experience' },
     { value: '20+', label: 'Projects Delivered' },
     { value: '15+', label: 'Happy Clients' },
   ],
