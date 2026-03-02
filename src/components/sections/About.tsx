@@ -154,8 +154,8 @@ export default function About() {
             {/* Download CV */}
             <motion.a
               {...anim(0.45)}
-              href="/Gabriel_Anietie_Udoh_CV_.docx"
-              download
+              href="/Gabriel_Udoh.pdf"
+              download="Gabriel_Udoh.pdf"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 padding: '0.65rem 1.5rem', borderRadius: '999px',

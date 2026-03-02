@@ -297,8 +297,8 @@ export default function Hero() {
               ))}
               <div style={{ width: '1px', height: '22px', background: 'rgba(255,255,255,0.1)' }} />
               <a
-                href="/Gabriel_Anietie_Udoh_CV_.docx"
-                download
+                href="/Gabriel_Udoh.pdf"
+                download="Gabriel_Udoh.pdf"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                   fontSize: '0.82rem', fontWeight: 500, color: '#64748b',

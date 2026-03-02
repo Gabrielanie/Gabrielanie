@@ -35,7 +35,7 @@ const CARDS = [
     icon: <Download size={22} />,
     label: 'Download CV',
     value: 'Gabriel_Anietie_Udoh',
-    href: '/Gabriel_Anietie_Udoh_CV_.docx',
+    href: '/Gabriel_Udoh.pdf',
     color: '#f59e0b',
     note: 'Get my full résumé',
     download: true,
