@@ -229,6 +229,30 @@ export default function Hero() {
               >
                 <Mail size={15} /> Get In Touch
               </a>
+              <a
+                href="/Gabriel_Udoh.pdf"
+                download="Gabriel_Udoh.pdf"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
+                  padding: '0.7rem 1.6rem', borderRadius: '999px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: '#94a3b8', fontWeight: 600, fontSize: '0.92rem',
+                  transition: 'background 0.2s, border-color 0.2s, color 0.2s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)';
+                  e.currentTarget.style.color = '#f1f5f9';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
+                  e.currentTarget.style.color = '#94a3b8';
+                }}
+              >
+                <Download size={15} /> Download CV
+              </a>
             </motion.div>
 
             {/* Social row */}
