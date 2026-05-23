@@ -109,17 +109,22 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
           </span>
         </div>
 
+        {/* Lead summary */}
+        <p style={{ fontSize: '0.875rem', color: '#64748b', lineHeight: 1.7, marginBottom: '0.85rem', fontStyle: 'italic' }}>
+          {exp.achievements[0]}
+        </p>
+
         {/* Achievements */}
-        <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          {exp.achievements.map((item, i) => (
+        <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+          {exp.achievements.slice(1).map((item, i) => (
             <li
               key={i}
               style={{
                 display: 'flex', gap: '0.6rem', alignItems: 'flex-start',
-                fontSize: '0.875rem', color: '#94a3b8', lineHeight: 1.7,
+                fontSize: '0.855rem', color: '#94a3b8', lineHeight: 1.65,
               }}
             >
-              <CheckCircle2 size={14} style={{ color: '#16a34a', marginTop: '4px', flexShrink: 0 }} />
+              <CheckCircle2 size={13} style={{ color: '#16a34a', marginTop: '4px', flexShrink: 0 }} />
               {item}
             </li>
           ))}

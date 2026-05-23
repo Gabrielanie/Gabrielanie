@@ -12,7 +12,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      style={{ position: 'relative', zIndex: 1, padding: '7rem 1.5rem' }}
+      style={{ position: 'relative', zIndex: 1, padding: '5rem 1.5rem' }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <SectionHeading

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail, Download, Code2, Link2 } from 'lucide-react';
+import { ArrowDown, Mail, Code2, Link2 } from 'lucide-react';
 import { personal } from '../../data/portfolio';
 
-const TECH_BADGES = ['React', 'Next.js', 'TypeScript', 'Node.js', 'React Native', 'Tailwind CSS'];
+const TECH_BADGES = ['React', 'Next.js', 'TypeScript', 'Node.js', 'React Native'];
 
 function useTypewriter(items: string[]) {
   const [index,     setIndex]     = useState(0);
@@ -229,30 +229,6 @@ export default function Hero() {
               >
                 <Mail size={15} /> Get In Touch
               </a>
-              <a
-                href="/Gabriel_Udoh.pdf"
-                download="Gabriel_Udoh.pdf"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
-                  padding: '0.7rem 1.6rem', borderRadius: '999px',
-                  background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  color: '#94a3b8', fontWeight: 600, fontSize: '0.92rem',
-                  transition: 'background 0.2s, border-color 0.2s, color 0.2s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)';
-                  e.currentTarget.style.color = '#f1f5f9';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
-                  e.currentTarget.style.color = '#94a3b8';
-                }}
-              >
-                <Download size={15} /> Download CV
-              </a>
             </motion.div>
 
             {/* Social row */}
@@ -295,20 +271,6 @@ export default function Hero() {
                   {s.icon}
                 </a>
               ))}
-              <div style={{ width: '1px', height: '22px', background: 'rgba(255,255,255,0.1)' }} />
-              <a
-                href="/Gabriel_Udoh.pdf"
-                download="Gabriel_Udoh.pdf"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                  fontSize: '0.82rem', fontWeight: 500, color: '#64748b',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#4ade80')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#64748b')}
-              >
-                <Download size={14} /> Resume
-              </a>
             </motion.div>
           </div>
 
@@ -362,7 +324,7 @@ export default function Hero() {
             {/* Floating tech badges */}
             {TECH_BADGES.map((badge, i) => {
               const angle = (i / TECH_BADGES.length) * 2 * Math.PI;
-              const r = 190;
+              const r = 220;
               const x = Math.cos(angle - Math.PI / 2) * r;
               const y = Math.sin(angle - Math.PI / 2) * r;
               return (

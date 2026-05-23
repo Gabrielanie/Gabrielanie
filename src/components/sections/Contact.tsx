@@ -71,8 +71,8 @@ export default function Contact() {
               padding: '3.5rem 2.5rem',
               marginBottom: '2rem',
               textAlign: 'center',
-              background: 'linear-gradient(135deg, rgba(22,101,52,0.1) 0%, rgba(13,148,136,0.07) 100%)',
-              border: '1px solid rgba(22,101,52,0.18)',
+              background: 'linear-gradient(135deg, rgba(22,101,52,0.18) 0%, rgba(13,148,136,0.12) 100%)',
+              border: '1px solid rgba(22,101,52,0.32)',
             }}
           >
             {/* Top glow */}
