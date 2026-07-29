@@ -12,11 +12,6 @@ import Footer       from './components/Footer';
 export default function App() {
   return (
     <>
-      {/* Ambient background orbs */}
-      <div className="orb orb-green" aria-hidden="true" />
-      <div className="orb orb-teal"  aria-hidden="true" />
-      <div className="orb orb-lime"  aria-hidden="true" />
-
       <Navbar />
 
       <main>

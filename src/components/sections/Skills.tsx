@@ -10,11 +10,8 @@ export default function Skills() {
   const active = skills.find(s => s.id === activeId)!;
 
   return (
-    <section
-      id="skills"
-      style={{ position: 'relative', zIndex: 1, padding: '5rem 1.5rem' }}
-    >
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section id="skills" className="relative z-10 px-6 py-20">
+      <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Technical Skills"
           title="My "
@@ -25,13 +22,10 @@ export default function Skills() {
         <div ref={ref}>
           {/* Category tabs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: 'flex', flexWrap: 'wrap',
-              justifyContent: 'center', gap: '0.5rem', marginBottom: '2.5rem',
-            }}
+            transition={{ duration: 0.4 }}
+            className="mb-8 flex flex-wrap justify-center gap-2"
           >
             {skills.map(skill => {
               const isActive = skill.id === activeId;
@@ -39,19 +33,11 @@ export default function Skills() {
                 <button
                   key={skill.id}
                   onClick={() => setActiveId(skill.id)}
-                  style={{
-                    padding: '0.45rem 1.1rem',
-                    borderRadius: '999px',
-                    fontSize: '0.84rem',
-                    fontWeight: 500,
-                    color: isActive ? '#fff' : '#94a3b8',
-                    background: isActive ? skill.color : 'rgba(255,255,255,0.04)',
-                    border: isActive
-                      ? `1px solid ${skill.color}`
-                      : '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: isActive ? `0 4px 14px ${skill.color}40` : 'none',
-                    transition: 'all 0.2s',
-                  }}
+                  className={`rounded-full border px-4.5 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'border-brand-600 bg-brand-600 text-white'
+                      : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
+                  }`}
                 >
                   {skill.label}
                 </button>
@@ -63,60 +49,21 @@ export default function Skills() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeId}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                padding: '2.5rem',
-                borderRadius: '20px',
-                background: '#0d0d0d',
-                border: `1px solid ${active.color}22`,
-              }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-2xl border border-slate-200 bg-white p-8"
             >
-              <div
-                style={{
-                  display: 'flex', flexWrap: 'wrap',
-                  gap: '0.65rem', justifyContent: 'center',
-                }}
-              >
-                {active.items.map((item, i) => (
-                  <motion.div
+              <div className="flex flex-wrap justify-center gap-2.5">
+                {active.items.map(item => (
+                  <div
                     key={item}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.035, type: 'spring', stiffness: 280 }}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                      padding: '0.45rem 1rem',
-                      borderRadius: '10px',
-                      background: `${active.color}0e`,
-                      border: `1px solid ${active.color}20`,
-                      color: '#e2e8f0',
-                      fontSize: '0.85rem',
-                      fontWeight: 500,
-                      transition: 'transform 0.18s, background 0.18s, box-shadow 0.18s',
-                      cursor: 'default',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.transform = 'translateY(-2px)';
-                      e.currentTarget.style.background = `${active.color}1c`;
-                      e.currentTarget.style.boxShadow = `0 4px 10px ${active.color}20`;
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.background = `${active.color}0e`;
-                      e.currentTarget.style.boxShadow = 'none';
-                    }}
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
                   >
-                    <span
-                      style={{
-                        width: '6px', height: '6px', borderRadius: '50%',
-                        background: active.color, flexShrink: 0,
-                      }}
-                    />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: active.color }} />
                     {item}
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </motion.div>
@@ -124,44 +71,22 @@ export default function Skills() {
 
           {/* Count strip */}
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.35, duration: 0.5 }}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: `repeat(${skills.length}, 1fr)`,
-              gap: '0.75rem',
-              marginTop: '1.25rem',
-            }}
+            transition={{ delay: 0.25, duration: 0.4 }}
+            className="mt-5 grid gap-3"
+            style={{ gridTemplateColumns: `repeat(${skills.length}, 1fr)` }}
           >
             {skills.map(skill => (
               <button
                 key={skill.id}
                 onClick={() => setActiveId(skill.id)}
-                style={{
-                  padding: '0.85rem 0.5rem',
-                  borderRadius: '14px',
-                  textAlign: 'center',
-                  cursor: 'pointer',
-                  background: activeId === skill.id ? `${skill.color}14` : '#0d0d0d',
-                  border: activeId === skill.id
-                    ? `1px solid ${skill.color}38`
-                    : '1px solid rgba(255,255,255,0.06)',
-                  transition: 'all 0.2s',
-                }}
+                className={`rounded-xl border px-2 py-3.5 text-center transition-colors ${
+                  activeId === skill.id ? 'border-brand-200 bg-brand-50' : 'border-slate-200 bg-white'
+                }`}
               >
-                <div
-                  style={{
-                    fontSize: '1.35rem', fontWeight: 800, lineHeight: 1,
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    color: skill.color,
-                  }}
-                >
-                  {skill.items.length}
-                </div>
-                <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '4px' }}>
-                  {skill.label}
-                </div>
+                <div className="font-display text-xl font-bold text-slate-900">{skill.items.length}</div>
+                <div className="mt-1 text-[0.68rem] text-slate-500">{skill.label}</div>
               </button>
             ))}
           </motion.div>

@@ -30,6 +30,17 @@ export const personal = {
   ],
 };
 
+export type NavLink = { href: string; label: string };
+
+export const navLinks: NavLink[] = [
+  { href: '#home',       label: 'Home' },
+  { href: '#about',      label: 'About' },
+  { href: '#skills',     label: 'Skills' },
+  { href: '#projects',   label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#contact',    label: 'Contact' },
+];
+
 export type SkillCategory = {
   id: string;
   label: string;
@@ -99,7 +110,7 @@ export const projects: Project[] = [
     description: 'Anonymous workplace feedback platform that fosters transparency and improves employee experiences.',
     longDescription: "A modern anonymous workplace feedback platform built with Next.js 15 App Router. Features role-based authentication, internationalisation support, and a live analytics dashboard with interactive data visualisations. Designed to help organisations surface honest employee sentiment and build healthier, more transparent workplace cultures.",
     liveUrl: 'https://rateo.ng/',
-    image: '/images/rateo.png',
+    image: '/images/rateo.webp',
     featured: true,
     color: '#15803d',
   },
@@ -111,7 +122,7 @@ export const projects: Project[] = [
     description: 'Full-featured fashion e-commerce store with real-time inventory and secure payment gateway.',
     longDescription: "A high-performance fashion e-commerce store handling hundreds of daily visitors. Built with custom templates, performance-optimised queries, and seamless payment gateway integration. Features advanced product filtering, wishlist functionality, and a fully responsive design — with significant improvements to page load performance through caching and optimisation strategies.",
     liveUrl: 'https://www.giselavogue.com',
-    image: '/images/gisela.png',
+    image: '/images/gisela.webp',
     featured: true,
     color: '#0d9488',
   },
@@ -123,7 +134,7 @@ export const projects: Project[] = [
     description: 'Cross-platform mobile app helping users discover free Wi-Fi hotspots and restaurants across Africa.',
     longDescription: "A cross-platform mobile application serving users across multiple African countries with real-time location services, push notifications, and offline caching capabilities. Delivers a smooth, native-feel experience on both iOS and Android from a single codebase, backed by a performant REST API for real-time location-based data.",
     liveUrl: 'https://www.otgafrica.com/',
-    image: '/images/onthego.png',
+    image: '/images/onthego.webp',
     featured: true,
     color: '#06b6d4',
   },
@@ -135,7 +146,7 @@ export const projects: Project[] = [
     description: 'Comprehensive HRMS for organisational performance tracking, payroll, and training solutions.',
     longDescription: "A comprehensive HR management platform covering staff onboarding, payroll management, performance reviews, and training module tracking. Features role-based access control, exportable reports, and audit trails — transforming complex HR requirements into an intuitive platform used by teams daily.",
     liveUrl: 'https://greensagebconsult.com/',
-    image: '/images/greensage.png',
+    image: '/images/greensage.webp',
     featured: true,
     color: '#22c55e',
   },
@@ -147,7 +158,7 @@ export const projects: Project[] = [
     description: 'Comprehensive admin dashboard for managing an online learning platform — courses, orders, customers, articles, vouchers, and enrollments.',
     longDescription: "A fully-featured e-learning administration platform with a live analytics dashboard tracking revenue, enrollments, and conversion metrics. Includes rich-text course and lesson management, article publishing, order and transaction tracking, customer analytics, voucher management, and enrollment monitoring — built with a focus on performance, accessible components, and a clean, maintainable codebase.",
     liveUrl: 'https://lgc-admin-sooty.vercel.app',
-    image: '/images/lgc.png',
+    image: '/images/lgc.webp',
     featured: true,
     color: '#f59e0b',
   },
@@ -315,7 +326,7 @@ export const testimonials: Testimonial[] = [
     name: 'Chinenye Anuchi',
     role: 'CEO',
     company: 'Gisela Vogue',
-    initials: 'SJ',
+    initials: 'CA',
     color: '#0d9488',
     quote: "Gabriel delivered an exceptional e-commerce platform for our fashion brand. His attention to detail and technical expertise resulted in a 40% increase in our online sales within the first month of launch.",
   },
@@ -323,7 +334,7 @@ export const testimonials: Testimonial[] = [
     name: 'Effie Iheggie',
     role: 'Director',
     company: 'Greensage Consult',
-    initials: 'MT',
+    initials: 'EI',
     color: '#22c55e',
     quote: "Working with Gabriel on our HR software was a game-changer. He transformed complex requirements into an intuitive platform that our team loves using daily.",
   },
@@ -331,7 +342,7 @@ export const testimonials: Testimonial[] = [
     name: 'Joshep Udu',
     role: 'Product Manager',
     company: 'Spencer Venture Studio',
-    initials: 'JL',
+    initials: 'JU',
     color: '#06b6d4',
     quote: "Gabriel's expertise in React and Node.js helped us build a scalable platform. His clean code and documentation made future enhancements effortless.",
   },

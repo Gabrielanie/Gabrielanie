@@ -8,101 +8,42 @@ export default function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const anim = (delay = 0) => ({
-    initial: { opacity: 0, y: 28 },
+    initial: { opacity: 0, y: 14 },
     animate: inView ? { opacity: 1, y: 0 } : {},
-    transition: { duration: 0.6, delay, ease: [0.25, 1, 0.35, 1] as [number, number, number, number] },
+    transition: { duration: 0.45, delay, ease: [0.25, 1, 0.35, 1] as [number, number, number, number] },
   });
 
   return (
-    <section
-      id="about"
-      style={{ position: 'relative', zIndex: 1, padding: '7rem 1.5rem' }}
-    >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+    <section id="about" className="relative z-10 bg-slate-50 px-6 py-28">
+      <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="About Me"
           title="Turning ideas into "
           accent="impactful products"
         />
 
-        <div
-          ref={ref}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
-            gap: '4rem',
-            alignItems: 'center',
-          }}
-        >
+        <div ref={ref} className="grid items-center gap-16 lg:grid-cols-2">
           {/* Avatar card */}
-          <motion.div {...anim(0)} style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'relative', maxWidth: '360px', width: '100%' }}>
-              <div
-                style={{
-                  aspectRatio: '1',
-                  borderRadius: '24px',
-                  background: 'linear-gradient(145deg, #0a1f10, #0d1a14)',
-                  border: '1px solid rgba(22,101,52,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  position: 'relative', overflow: 'hidden',
-                }}
-              >
-                {/* Dot pattern */}
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: 'absolute', inset: 0,
-                    backgroundImage: 'radial-gradient(rgba(34,197,94,0.1) 1px, transparent 1px)',
-                    backgroundSize: '22px 22px',
-                  }}
+          <motion.div {...anim(0)} className="flex justify-center">
+            <div className="relative w-full max-w-xs">
+              <div className="relative aspect-square overflow-hidden rounded-3xl border border-slate-200 bg-white">
+                <img
+                  src="/images/profile.webp"
+                  alt={personal.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
                 />
-                <div
-                  style={{
-                    position: 'relative', zIndex: 1,
-                    width: '160px', height: '160px', borderRadius: '50%',
-                    overflow: 'hidden',
-                    border: '2px solid rgba(22,101,52,0.35)',
-                  }}
-                >
-                  <img
-                    src="/images/profile.jpg"
-                    alt="Gabriel Anie"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
-                  />
-                </div>
               </div>
 
               {/* Stats badge */}
               <motion.div
-                {...anim(0.3)}
-                style={{
-                  position: 'absolute', bottom: '-1.4rem', right: '-1rem',
-                  padding: '1rem 1.4rem',
-                  background: '#0f0f0f',
-                  border: '1px solid rgba(22,101,52,0.22)',
-                  borderRadius: '16px',
-                  display: 'flex', gap: '1.4rem',
-                  boxShadow: '0 8px 30px rgba(0,0,0,0.4)',
-                }}
+                {...anim(0.25)}
+                className="absolute -bottom-6 -right-4 flex gap-5 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm"
               >
                 {personal.stats.map(s => (
-                  <div key={s.label} style={{ textAlign: 'center' }}>
-                    <div
-                      style={{
-                        fontSize: '1.45rem', fontWeight: 800,
-                        fontFamily: "'Space Grotesk', sans-serif",
-                        background: 'linear-gradient(135deg, #16a34a, #22c55e)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        lineHeight: 1.1,
-                      }}
-                    >
-                      {s.value}
-                    </div>
-                    <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '3px', whiteSpace: 'nowrap' }}>
-                      {s.label}
-                    </div>
+                  <div key={s.label} className="text-center">
+                    <div className="font-display text-xl font-bold text-brand-700">{s.value}</div>
+                    <div className="mt-0.5 whitespace-nowrap text-[0.68rem] text-slate-500">{s.label}</div>
                   </div>
                 ))}
               </motion.div>
@@ -110,28 +51,21 @@ export default function About() {
           </motion.div>
 
           {/* Text content */}
-          <div style={{ paddingBottom: '1rem' }}>
+          <div className="pb-4 pt-6 lg:pt-0">
             {/* Info pills */}
-            <motion.div
-              {...anim(0.1)}
-              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.8rem' }}
-            >
+            <motion.div {...anim(0.1)} className="mb-7 flex flex-wrap gap-2">
               {[
-                { icon: <MapPin size={13} />, label: personal.location },
-                { icon: <Briefcase size={13} />, label: personal.title },
-                { icon: <Zap size={13} />, label: personal.availability, green: true },
+                { icon: <MapPin size={13} />, label: personal.location, accent: false },
+                { icon: <Briefcase size={13} />, label: personal.title, accent: false },
+                { icon: <Zap size={13} />, label: personal.availability, accent: true },
               ].map(p => (
                 <div
                   key={p.label}
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '0.38rem',
-                    padding: '0.3rem 0.8rem',
-                    borderRadius: '999px',
-                    background: p.green ? 'rgba(22,101,52,0.12)' : 'rgba(255,255,255,0.04)',
-                    border: p.green ? '1px solid rgba(22,101,52,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                    color: p.green ? '#4ade80' : '#94a3b8',
-                    fontSize: '0.8rem',
-                  }}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm ${
+                    p.accent
+                      ? 'border-brand-200 bg-brand-50 text-brand-700'
+                      : 'border-slate-200 bg-white text-slate-600'
+                  }`}
                 >
                   {p.icon} {p.label}
                 </div>
@@ -139,13 +73,9 @@ export default function About() {
             </motion.div>
 
             {/* Bio */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+            <div className="mb-8 flex flex-col gap-4">
               {personal.bio.map((para, i) => (
-                <motion.p
-                  key={i}
-                  {...anim(0.15 + i * 0.1)}
-                  style={{ fontSize: '0.97rem', color: '#94a3b8', lineHeight: 1.8 }}
-                >
+                <motion.p key={i} {...anim(0.15 + i * 0.08)} className="text-base leading-relaxed text-slate-600">
                   {para}
                 </motion.p>
               ))}
@@ -153,27 +83,10 @@ export default function About() {
 
             {/* Download CV */}
             <motion.a
-              {...anim(0.45)}
+              {...anim(0.4)}
               href="/Gabriel_Udoh.pdf"
               download="Gabriel_Udoh.pdf"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.65rem 1.5rem', borderRadius: '999px',
-                background: 'rgba(22,101,52,0.1)',
-                border: '1px solid rgba(22,101,52,0.3)',
-                color: '#4ade80', fontWeight: 600, fontSize: '0.88rem',
-                transition: 'background 0.2s, border-color 0.2s, box-shadow 0.2s',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(22,101,52,0.18)';
-                e.currentTarget.style.borderColor = 'rgba(22,101,52,0.5)';
-                e.currentTarget.style.boxShadow = '0 4px 16px rgba(22,101,52,0.22)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(22,101,52,0.1)';
-                e.currentTarget.style.borderColor = 'rgba(22,101,52,0.3)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
             >
               <Download size={15} /> Download CV
             </motion.a>

@@ -14,63 +14,22 @@ export default function SectionHeading({ eyebrow, title, accent, description }: 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, ease: [0.25, 1, 0.35, 1] }}
-      style={{ textAlign: 'center', marginBottom: '4rem' }}
+      transition={{ duration: 0.45 }}
+      className="mb-16 text-center"
     >
-      <span
-        style={{
-          display: 'inline-block',
-          fontSize: '0.68rem',
-          fontWeight: 700,
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase' as const,
-          color: '#4ade80',
-          background: 'rgba(22,101,52,0.15)',
-          border: '1px solid rgba(22,101,52,0.3)',
-          borderRadius: '999px',
-          padding: '0.28rem 0.85rem',
-          marginBottom: '1rem',
-        }}
-      >
+      <span className="mb-3 inline-block rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-700">
         {eyebrow}
       </span>
 
-      <h2
-        style={{
-          fontSize: 'clamp(1.9rem, 4.5vw, 2.9rem)',
-          fontWeight: 700,
-          color: '#f1f5f9',
-          letterSpacing: '-0.02em',
-          marginBottom: description ? '0.9rem' : 0,
-        }}
-      >
+      <h2 className={`text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl ${description ? 'mb-3.5' : ''}`}>
         {title}
-        {accent && (
-          <span
-            style={{
-              background: 'linear-gradient(135deg, #16a34a 0%, #22c55e 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            {accent}
-          </span>
-        )}
+        {accent && <span className="text-brand-700">{accent}</span>}
       </h2>
 
       {description && (
-        <p
-          style={{
-            fontSize: '1.05rem',
-            color: '#94a3b8',
-            maxWidth: '520px',
-            margin: '0 auto',
-            lineHeight: 1.75,
-          }}
-        >
+        <p className="mx-auto max-w-lg text-base leading-relaxed text-slate-600">
           {description}
         </p>
       )}
