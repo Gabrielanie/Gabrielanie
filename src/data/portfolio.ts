@@ -45,6 +45,7 @@ export type SkillCategory = {
   id: string;
   label: string;
   color: string;
+  solid: string;
   items: string[];
 };
 
@@ -53,36 +54,42 @@ export const skills: SkillCategory[] = [
     id: 'frontend',
     label: 'Frontend',
     color: '#15803d',
+    solid: '#15803d',
     items: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Vue.js', 'Tailwind CSS', 'shadcn/ui', 'Framer Motion', 'Redux Toolkit', 'React Query', 'SASS', 'Bootstrap'],
   },
   {
     id: 'backend',
     label: 'Backend',
     color: '#06b6d4',
+    solid: '#0e7490',
     items: ['Node.js', 'Express.js', 'PHP', 'Laravel', 'PostgreSQL', 'MySQL', 'MongoDB', 'Firebase', 'Supabase', 'Prisma', 'Socket.io', 'REST APIs', 'GraphQL', 'Redis', 'Zod'],
   },
   {
     id: 'ai',
     label: 'AI & Integrations',
     color: '#8b5cf6',
+    solid: '#6d28d9',
     items: ['Claude AI (Anthropic)', 'OpenAI API', 'Whisper (Speech-to-Text)', 'Google Cloud Speech', 'OpenRouter', 'AI Prompt Engineering', 'Amadeus API', 'Paystack API', 'Stripe', 'Mailchimp API'],
   },
   {
     id: 'mobile',
     label: 'Mobile',
     color: '#22c55e',
+    solid: '#047857',
     items: ['React Native', 'TypeScript', 'Expo', 'React Navigation', 'AsyncStorage', 'Push Notifications', 'Geolocation', 'Offline Caching'],
   },
   {
     id: 'devops',
     label: 'DevOps & Tools',
     color: '#f59e0b',
+    solid: '#b45309',
     items: ['Git & GitHub', 'Docker', 'AWS', 'Azure', 'Vercel', 'Railway', 'GitHub Actions', 'Nginx', 'Vite', 'Figma', 'Radix UI', 'Formik / Yup'],
   },
   {
     id: 'cms',
     label: 'CMS & E-Commerce',
     color: '#0d9488',
+    solid: '#0f766e',
     items: ['WordPress', 'WooCommerce', 'Elementor', 'Headless CMS', 'SEO Optimisation', 'Performance Tuning'],
   },
 ];
@@ -327,7 +334,7 @@ export const testimonials: Testimonial[] = [
     role: 'CEO',
     company: 'Gisela Vogue',
     initials: 'CA',
-    color: '#0d9488',
+    color: '#0f766e',
     quote: "Gabriel delivered an exceptional e-commerce platform for our fashion brand. His attention to detail and technical expertise resulted in a 40% increase in our online sales within the first month of launch.",
   },
   {
@@ -335,7 +342,7 @@ export const testimonials: Testimonial[] = [
     role: 'Director',
     company: 'Greensage Consult',
     initials: 'EI',
-    color: '#22c55e',
+    color: '#15803d',
     quote: "Working with Gabriel on our HR software was a game-changer. He transformed complex requirements into an intuitive platform that our team loves using daily.",
   },
   {
@@ -343,7 +350,7 @@ export const testimonials: Testimonial[] = [
     role: 'Product Manager',
     company: 'Spencer Venture Studio',
     initials: 'JU',
-    color: '#06b6d4',
+    color: '#0e7490',
     quote: "Gabriel's expertise in React and Node.js helped us build a scalable platform. His clean code and documentation made future enhancements effortless.",
   },
 ];

@@ -8,7 +8,7 @@ export default function Testimonials() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="relative z-10 bg-slate-50 px-6 py-28">
+    <section className="relative z-10 bg-linear-to-b from-amber-50/40 via-white to-white px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Testimonials"
@@ -24,9 +24,10 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6"
+              className="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6"
             >
-              <Quote size={24} className="absolute right-5 top-5 text-slate-100" />
+              <div className="absolute inset-x-0 top-0 h-1" style={{ background: t.color }} />
+              <Quote size={24} className="absolute right-5 top-7 text-slate-100" />
 
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, j) => (
@@ -40,8 +41,8 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
                 <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold"
-                  style={{ background: `${t.color}18`, color: t.color }}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white shadow-sm"
+                  style={{ background: t.color }}
                 >
                   {t.initials}
                 </div>

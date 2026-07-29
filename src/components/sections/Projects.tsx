@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Code2, X } from 'lucide-react';
@@ -35,7 +35,8 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
           onClick();
         }
       }}
-      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
+      style={{ '--accent': project.color } as CSSProperties}
+      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:-translate-y-1 hover:border-(--accent) hover:shadow-lg"
     >
       {/* Image preview or colour bar */}
       {project.image ? (
@@ -46,10 +47,10 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
             loading="lazy"
             className="h-full w-full object-cover object-top"
           />
-          <div className="absolute inset-x-0 top-0 h-0.75" style={{ background: project.color }} />
+          <div className="absolute inset-x-0 top-0 h-1.5" style={{ background: project.color }} />
         </div>
       ) : (
-        <div className="h-0.75" style={{ background: project.color }} />
+        <div className="h-1.5" style={{ background: project.color }} />
       )}
 
       <div className="flex flex-1 flex-col gap-3 p-6">
@@ -172,7 +173,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         onClick={e => e.stopPropagation()}
         className="relative m-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
       >
-        <div className="h-0.75" style={{ background: project.color }} />
+        <div className="h-1.5" style={{ background: project.color }} />
 
         {/* Screenshot */}
         {project.image && (
@@ -262,7 +263,7 @@ export default function Projects() {
     : projects.filter(p => p.category.includes(filter));
 
   return (
-    <section id="projects" className="relative z-10 bg-slate-50 px-6 py-28">
+    <section id="projects" className="relative z-10 bg-linear-to-b from-brand-50/50 via-white to-white px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="My Work"

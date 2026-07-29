@@ -11,6 +11,7 @@ const CARDS = [
     value: personal.email,
     href: personal.socials.email,
     color: '#16a34a',
+    textColor: '#15803d',
     note: 'Drop me a line any time',
     download: false,
   },
@@ -20,6 +21,7 @@ const CARDS = [
     value: 'gabriel-udoh',
     href: personal.socials.linkedin,
     color: '#0d9488',
+    textColor: '#0f766e',
     note: 'Connect professionally',
     download: false,
   },
@@ -29,6 +31,7 @@ const CARDS = [
     value: 'gabrielanie',
     href: personal.socials.github,
     color: '#22c55e',
+    textColor: '#15803d',
     note: 'Check out my code',
     download: false,
   },
@@ -38,6 +41,7 @@ const CARDS = [
     value: 'Gabriel_Anietie_Udoh',
     href: '/Gabriel_Udoh.pdf',
     color: '#f59e0b',
+    textColor: '#b45309',
     note: 'Get my full résumé',
     download: true,
   },
@@ -62,17 +66,18 @@ export default function Contact() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="mb-8 rounded-2xl border border-brand-200 bg-brand-50 px-8 py-12 text-center"
+            className="relative mb-8 overflow-hidden rounded-2xl bg-linear-to-br from-brand-600 via-brand-600 to-teal-600 px-8 py-12 text-center shadow-lg shadow-brand-600/20"
           >
-            <h3 className="mb-2.5 font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+            <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+            <h3 className="relative mb-2.5 font-display text-2xl font-bold text-white sm:text-3xl">
               Ready to start a project?
             </h3>
-            <p className="mx-auto mb-7 max-w-md text-base leading-relaxed text-slate-600">
+            <p className="relative mx-auto mb-7 max-w-md text-base leading-relaxed text-white/85">
               Whether you have an idea, a brief, or just want to say hello — I'd love to hear from you.
             </p>
             <a
               href={personal.socials.email}
-              className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-700"
+              className="relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-md transition-transform hover:scale-105"
             >
               Say Hello <ArrowRight size={17} />
             </a>
@@ -93,13 +98,13 @@ export default function Contact() {
                 className="flex flex-col items-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-4 py-6 text-center transition-all hover:-translate-y-1 hover:shadow-md"
               >
                 <div
-                  className="flex h-11 w-11 items-center justify-center rounded-xl"
-                  style={{ background: `${card.color}18`, color: card.color }}
+                  className="flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-sm"
+                  style={{ background: card.textColor }}
                 >
                   {card.icon}
                 </div>
                 <div className="font-display text-sm font-semibold text-slate-900">{card.label}</div>
-                <div className="text-xs font-medium" style={{ color: card.color }}>{card.value}</div>
+                <div className="text-xs font-semibold" style={{ color: card.textColor }}>{card.value}</div>
                 <div className="text-xs text-slate-500">{card.note}</div>
               </motion.a>
             ))}

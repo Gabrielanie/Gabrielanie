@@ -33,12 +33,17 @@ export default function Skills() {
                 <button
                   key={skill.id}
                   onClick={() => setActiveId(skill.id)}
-                  className={`rounded-full border px-4.5 py-2 text-sm font-medium transition-colors ${
+                  style={isActive ? { background: skill.solid, boxShadow: `0 4px 14px ${skill.solid}40` } : undefined}
+                  className={`inline-flex items-center gap-2 rounded-full border-2 px-4.5 py-2 text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'border-brand-600 bg-brand-600 text-white'
+                      ? 'border-transparent text-white'
                       : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                   }`}
                 >
+                  <span
+                    className="h-2 w-2 shrink-0 rounded-full"
+                    style={{ background: isActive ? 'white' : skill.color }}
+                  />
                   {skill.label}
                 </button>
               );
@@ -53,13 +58,15 @@ export default function Skills() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25 }}
-              className="rounded-2xl border border-slate-200 bg-white p-8"
+              className="rounded-2xl border-2 bg-white p-8"
+              style={{ borderColor: `${active.color}40` }}
             >
               <div className="flex flex-wrap justify-center gap-2.5">
                 {active.items.map(item => (
                   <div
                     key={item}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+                    className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium text-slate-700"
+                    style={{ background: `${active.color}0e`, borderColor: `${active.color}30` }}
                   >
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: active.color }} />
                     {item}
@@ -81,8 +88,9 @@ export default function Skills() {
               <button
                 key={skill.id}
                 onClick={() => setActiveId(skill.id)}
-                className={`rounded-xl border px-2 py-3.5 text-center transition-colors ${
-                  activeId === skill.id ? 'border-brand-200 bg-brand-50' : 'border-slate-200 bg-white'
+                style={activeId === skill.id ? { background: `${skill.color}12`, borderColor: skill.color } : undefined}
+                className={`rounded-xl border-2 px-2 py-3.5 text-center transition-colors ${
+                  activeId === skill.id ? '' : 'border-slate-200 bg-white'
                 }`}
               >
                 <div className="font-display text-xl font-bold text-slate-900">{skill.items.length}</div>
