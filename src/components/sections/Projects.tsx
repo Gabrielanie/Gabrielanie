@@ -36,7 +36,7 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
         }
       }}
       style={{ '--accent': project.color } as CSSProperties}
-      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:-translate-y-1 hover:border-(--accent) hover:shadow-lg"
+      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] transition-all hover:-translate-y-1 hover:border-(--accent) hover:shadow-lg"
     >
       {/* Image preview or colour bar */}
       {project.image ? (
@@ -54,11 +54,11 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
       )}
 
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <h3 className="font-display text-base font-semibold leading-snug text-slate-900">
+        <h3 className="font-display text-base font-semibold leading-snug text-white">
           {project.title}
         </h3>
 
-        <p className="flex-1 text-sm leading-relaxed text-slate-600">
+        <p className="flex-1 text-sm leading-relaxed text-slate-400">
           {project.description}
         </p>
 
@@ -67,20 +67,20 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
           {project.tech.slice(0, 4).map(t => (
             <span
               key={t}
-              className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-500"
+              className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-slate-400"
             >
               {t}
             </span>
           ))}
           {project.tech.length > 4 && (
-            <span className="px-1 py-0.5 text-xs text-slate-400">
+            <span className="px-1 py-0.5 text-xs text-slate-500">
               +{project.tech.length - 4}
             </span>
           )}
         </div>
 
         {/* Footer links */}
-        <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+        <div className="flex items-center justify-between border-t border-white/10 pt-3">
           <div className="flex gap-4">
             {project.liveUrl && (
               <a
@@ -88,7 +88,7 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
                 target="_blank"
                 rel="noreferrer"
                 onClick={e => e.stopPropagation()}
-                className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 transition-opacity hover:opacity-70"
+                className="inline-flex items-center gap-1 text-sm font-medium text-brand-400 transition-opacity hover:opacity-70"
               >
                 <ExternalLink size={12} /> Live
               </a>
@@ -99,13 +99,13 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
                 target="_blank"
                 rel="noreferrer"
                 onClick={e => e.stopPropagation()}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-slate-700"
+                className="inline-flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-slate-300"
               >
                 <Code2 size={12} /> Code
               </a>
             )}
           </div>
-          <span className="text-xs text-slate-400">Details →</span>
+          <span className="text-xs text-slate-500">Details →</span>
         </div>
       </div>
     </motion.article>
@@ -159,7 +159,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-60 flex items-center justify-center overflow-y-auto bg-slate-900/50 p-6 backdrop-blur-sm"
+      className="fixed inset-0 z-60 flex items-center justify-center overflow-y-auto bg-black/70 p-6 backdrop-blur-sm"
     >
       <motion.div
         ref={dialogRef}
@@ -171,7 +171,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         exit={{ scale: 0.97, opacity: 0 }}
         transition={{ duration: 0.2 }}
         onClick={e => e.stopPropagation()}
-        className="relative m-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+        className="relative m-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] shadow-2xl"
       >
         <div className="h-1.5" style={{ background: project.color }} />
 
@@ -193,31 +193,31 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
             ref={closeRef}
             onClick={onClose}
             aria-label="Close"
-            className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200"
+            className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-slate-400 transition-colors hover:bg-white/20"
           >
             <X size={16} />
           </button>
 
           <h2
             id="project-modal-title"
-            className="mb-3 pr-10 font-display text-xl font-bold text-slate-900"
+            className="mb-3 pr-10 font-display text-xl font-bold text-white"
           >
             {project.title}
           </h2>
 
-          <p className="mb-6 text-sm leading-relaxed text-slate-600">
+          <p className="mb-6 text-sm leading-relaxed text-slate-400">
             {project.longDescription}
           </p>
 
           {/* Tech */}
-          <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-slate-400">
+          <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-slate-500">
             Tech Stack
           </p>
           <div className="mb-7 flex flex-wrap gap-2">
             {project.tech.map(t => (
               <span
                 key={t}
-                className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-600"
+                className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-sm font-medium text-slate-300"
               >
                 {t}
               </span>
@@ -231,7 +231,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-shadow hover:shadow-lg hover:shadow-brand-600/30"
               >
                 <ExternalLink size={14} /> Live Demo
               </a>
@@ -241,7 +241,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/5"
               >
                 <Code2 size={14} /> View Code
               </a>
@@ -263,7 +263,7 @@ export default function Projects() {
     : projects.filter(p => p.category.includes(filter));
 
   return (
-    <section id="projects" className="relative z-10 bg-linear-to-b from-brand-50/50 via-white to-white px-6 py-28">
+    <section id="projects" className="relative z-10 bg-[#0b0b12] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="My Work"
@@ -280,8 +280,8 @@ export default function Projects() {
               onClick={() => setFilter(f.id)}
               className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                 filter === f.id
-                  ? 'border-brand-600 bg-brand-600 text-white'
-                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
+                  ? 'border-transparent bg-linear-to-r from-brand-600 to-blue-600 text-white'
+                  : 'border-white/10 bg-white/5 text-slate-400 hover:border-white/20'
               }`}
             >
               {f.label}

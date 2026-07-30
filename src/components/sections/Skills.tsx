@@ -10,7 +10,7 @@ export default function Skills() {
   const active = skills.find(s => s.id === activeId)!;
 
   return (
-    <section id="skills" className="relative z-10 px-6 py-20">
+    <section id="skills" className="relative z-10 bg-[#08080d] px-6 py-20">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Technical Skills"
@@ -37,7 +37,7 @@ export default function Skills() {
                   className={`inline-flex items-center gap-2 rounded-full border-2 px-4.5 py-2 text-sm font-semibold transition-colors ${
                     isActive
                       ? 'border-transparent text-white'
-                      : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
+                      : 'border-white/10 bg-white/5 text-slate-400 hover:border-white/20'
                   }`}
                 >
                   <span
@@ -58,15 +58,15 @@ export default function Skills() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25 }}
-              className="rounded-2xl border-2 bg-white p-8"
+              className="rounded-2xl border-2 bg-[#0d0d17] p-8"
               style={{ borderColor: `${active.color}40` }}
             >
               <div className="flex flex-wrap justify-center gap-2.5">
                 {active.items.map(item => (
                   <div
                     key={item}
-                    className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium text-slate-700"
-                    style={{ background: `${active.color}0e`, borderColor: `${active.color}30` }}
+                    className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium text-slate-300"
+                    style={{ background: `${active.color}1a`, borderColor: `${active.color}40` }}
                   >
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: active.color }} />
                     {item}
@@ -88,12 +88,12 @@ export default function Skills() {
               <button
                 key={skill.id}
                 onClick={() => setActiveId(skill.id)}
-                style={activeId === skill.id ? { background: `${skill.color}12`, borderColor: skill.color } : undefined}
+                style={activeId === skill.id ? { background: `${skill.color}18`, borderColor: skill.color } : undefined}
                 className={`rounded-xl border-2 px-2 py-3.5 text-center transition-colors ${
-                  activeId === skill.id ? '' : 'border-slate-200 bg-white'
+                  activeId === skill.id ? '' : 'border-white/10 bg-white/5'
                 }`}
               >
-                <div className="font-display text-xl font-bold text-slate-900">{skill.items.length}</div>
+                <div className="font-display text-xl font-bold text-white">{skill.items.length}</div>
                 <div className="mt-1 text-[0.68rem] text-slate-500">{skill.label}</div>
               </button>
             ))}

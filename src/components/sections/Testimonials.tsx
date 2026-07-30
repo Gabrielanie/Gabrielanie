@@ -8,7 +8,7 @@ export default function Testimonials() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="relative z-10 bg-linear-to-b from-amber-50/40 via-white to-white px-6 py-28">
+    <section className="relative z-10 bg-[#0b0b12] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Testimonials"
@@ -24,22 +24,22 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6"
+              className="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] p-6"
             >
               <div className="absolute inset-x-0 top-0 h-1" style={{ background: t.color }} />
-              <Quote size={24} className="absolute right-5 top-7 text-slate-100" />
+              <Quote size={24} className="absolute right-5 top-7 text-white/5" />
 
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} size={13} fill="#d97706" className="text-amber-600" />
+                  <Star key={j} size={13} fill="#fbbf24" className="text-amber-400" />
                 ))}
               </div>
 
-              <p className="flex-1 text-sm leading-relaxed text-slate-600">
+              <p className="flex-1 text-sm leading-relaxed text-slate-400">
                 "{t.quote}"
               </p>
 
-              <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
+              <div className="flex items-center gap-3 border-t border-white/10 pt-4">
                 <div
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white shadow-sm"
                   style={{ background: t.color }}
@@ -47,7 +47,7 @@ export default function Testimonials() {
                   {t.initials}
                 </div>
                 <div>
-                  <div className="font-display text-sm font-semibold text-slate-900">{t.name}</div>
+                  <div className="font-display text-sm font-semibold text-white">{t.name}</div>
                   <div className="text-xs text-slate-500">{t.role}, {t.company}</div>
                 </div>
               </div>

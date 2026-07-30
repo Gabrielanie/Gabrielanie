@@ -20,32 +20,32 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
       <div className="flex shrink-0 flex-col items-center">
         <div
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${
-            exp.current ? 'bg-brand-600 text-white' : 'border border-slate-200 bg-white text-slate-400'
+            exp.current ? 'bg-linear-to-br from-brand-500 to-blue-500 text-white' : 'border border-white/10 bg-white/5 text-slate-500'
           }`}
         >
           {String(index + 1).padStart(2, '0')}
         </div>
-        {!isLast && <div className="my-1 w-px flex-1 bg-slate-200" style={{ minHeight: '2rem' }} />}
+        {!isLast && <div className="my-1 w-px flex-1 bg-white/10" style={{ minHeight: '2rem' }} />}
       </div>
 
       {/* Card */}
       <div
-        className={`flex-1 rounded-2xl border p-6 transition-shadow hover:shadow-sm ${
+        className={`flex-1 rounded-2xl border p-6 transition-shadow hover:shadow-lg ${
           isLast ? '' : 'mb-6'
-        } ${exp.current ? 'border-brand-200 bg-brand-50/40' : 'border-slate-200 bg-white'}`}
+        } ${exp.current ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/10 bg-[#0d0d17]'}`}
       >
         {/* Role row */}
         <div className="mb-0.5 flex flex-wrap items-center gap-2">
-          <h3 className="font-display text-base font-semibold text-slate-900">{exp.role}</h3>
+          <h3 className="font-display text-base font-semibold text-white">{exp.role}</h3>
           {exp.current && (
-            <span className="rounded-full border border-brand-200 bg-brand-100 px-2 py-0.5 text-xs font-bold text-brand-700">
+            <span className="rounded-full border border-brand-500/30 bg-brand-500/15 px-2 py-0.5 text-xs font-bold text-brand-300">
               Current
             </span>
           )}
         </div>
 
         {/* Company */}
-        <div className="mb-2.5 text-sm font-semibold text-brand-700">{exp.company}</div>
+        <div className="mb-2.5 text-sm font-semibold text-brand-400">{exp.company}</div>
 
         {/* Meta */}
         <div className="mb-4 flex flex-wrap gap-4">
@@ -65,8 +65,8 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
         {/* Achievements */}
         <ul className="flex flex-col gap-2">
           {exp.achievements.slice(1).map((item, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600">
-              <CheckCircle2 size={13} className="mt-1 shrink-0 text-brand-600" />
+            <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-400">
+              <CheckCircle2 size={13} className="mt-1 shrink-0 text-brand-400" />
               {item}
             </li>
           ))}
@@ -79,7 +79,7 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
 /* ── Section ── */
 export default function Experience() {
   return (
-    <section id="experience" className="relative z-10 px-6 py-28">
+    <section id="experience" className="relative z-10 bg-[#08080d] px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Work History"

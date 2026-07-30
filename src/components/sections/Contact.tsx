@@ -51,7 +51,7 @@ export default function Contact() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="contact" className="relative z-10 px-6 py-28">
+    <section id="contact" className="relative z-10 bg-[#08080d] px-6 py-28">
       <div className="mx-auto max-w-3xl">
         <SectionHeading
           eyebrow="Get In Touch"
@@ -66,7 +66,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45 }}
-            className="relative mb-8 overflow-hidden rounded-2xl bg-linear-to-br from-brand-600 via-brand-600 to-teal-600 px-8 py-12 text-center shadow-lg shadow-brand-600/20"
+            className="relative mb-8 overflow-hidden rounded-2xl bg-linear-to-br from-brand-600 via-brand-600 to-blue-600 px-8 py-12 text-center shadow-lg shadow-brand-600/20"
           >
             <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
             <h3 className="relative mb-2.5 font-display text-2xl font-bold text-white sm:text-3xl">
@@ -95,7 +95,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 + i * 0.07, duration: 0.4 }}
-                className="flex flex-col items-center gap-2.5 rounded-2xl border border-slate-200 bg-white px-4 py-6 text-center transition-all hover:-translate-y-1 hover:shadow-md"
+                className="flex flex-col items-center gap-2.5 rounded-2xl border border-white/10 bg-[#0d0d17] px-4 py-6 text-center transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <div
                   className="flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-sm"
@@ -103,8 +103,8 @@ export default function Contact() {
                 >
                   {card.icon}
                 </div>
-                <div className="font-display text-sm font-semibold text-slate-900">{card.label}</div>
-                <div className="text-xs font-semibold" style={{ color: card.textColor }}>{card.value}</div>
+                <div className="font-display text-sm font-semibold text-white">{card.label}</div>
+                <div className="text-xs font-semibold" style={{ color: card.color }}>{card.value}</div>
                 <div className="text-xs text-slate-500">{card.note}</div>
               </motion.a>
             ))}

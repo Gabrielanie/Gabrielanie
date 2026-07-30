@@ -1,4 +1,4 @@
-import { Mail, Link2, Code2 } from 'lucide-react';
+import { Mail, Link2, Code2, ArrowUp } from 'lucide-react';
 import { navLinks, personal } from '../data/portfolio';
 import { scrollTo } from '../lib/scroll';
 
@@ -10,17 +10,17 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-slate-200 bg-slate-50 px-6 py-11">
+    <footer className="relative z-10 border-t border-white/10 bg-[#0b0b12] px-6 py-11">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
         {/* Top row */}
         <div className="flex flex-wrap items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-600 font-display text-xs font-bold text-white">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-brand-500 to-blue-500 font-display text-xs font-bold text-white">
               GA
             </div>
             <div>
-              <div className="font-display text-sm font-semibold text-slate-900">{personal.name}</div>
+              <div className="font-display text-sm font-semibold text-white">{personal.name}</div>
               <div className="text-xs text-slate-500">{personal.title}</div>
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
                 key={link.href}
                 href={link.href}
                 onClick={e => { e.preventDefault(); scrollTo(link.href); }}
-                className="text-sm text-slate-600 transition-colors hover:text-brand-700"
+                className="text-sm text-slate-400 transition-colors hover:text-brand-400"
               >
                 {link.label}
               </a>
@@ -48,7 +48,7 @@ export default function Footer() {
                 target={s.href.startsWith('mailto') ? undefined : '_blank'}
                 rel="noreferrer"
                 aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-colors hover:border-brand-300 hover:text-brand-700"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-colors hover:border-brand-500/40 hover:text-brand-400"
               >
                 {s.icon}
               </a>
@@ -57,9 +57,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-slate-500">
           <span>© {new Date().getFullYear()} {personal.fullName}. All rights reserved.</span>
-          <span>Built with React &amp; Tailwind CSS.</span>
+          <button
+            onClick={() => scrollTo('#home')}
+            aria-label="Back to top"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-colors hover:border-brand-500/40 hover:text-brand-400"
+          >
+            <ArrowUp size={15} />
+          </button>
         </div>
       </div>
     </footer>
