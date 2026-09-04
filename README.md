@@ -29,26 +29,6 @@ Building performant, scalable web, mobile & AI-integrated applications — from 
 
 ---
 
-## Featured Projects
-
-| Project | What it is | Stack |
-|---|---|---|
-| **TheCoinFlow** | Multi-tenant accounting SaaS — invoicing, bills, banking, payroll, reports, plus an AI copilot. [Live ↗](https://thecoinflow.vercel.app) | Next.js · Express · Prisma · PostgreSQL · OpenAI |
-| **[Rate'O](https://rateo.ng/)** | Anonymous workplace feedback platform — role-based auth, i18n, live analytics dashboard. | Next.js 15 · TypeScript · React 19 · TanStack Query · MySQL |
-| **DuoLink Logistics** | Full-stack procurement & delivery platform connecting Nigeria to the US. | React · TypeScript · Node.js · Express · PostgreSQL |
-| **Anieprop** | Property management platform (UK/Nigeria) — lease complexity, arrears ageing, compliance reminders, full audit trail. | Next.js · TypeScript |
-| **[PraxisPQ](https://project-kio2t.vercel.app)** | Enterprise AI-powered organisational assessment SaaS (DEIB, culture-change readiness), WCAG 2.2 AA. | React · Node.js · PostgreSQL · Docker |
-| **[OnTheGo](https://www.otgafrica.com/)** | Cross-platform mobile app for discovering free Wi-Fi hotspots across Africa. Led development at venture studio. | React Native · Node.js · Express · MongoDB |
-| **Voyage Pal** | AI-powered travel companion — destination discovery, AI chat trip planning, bookings, payments. | React Native · Node.js · MongoDB |
-| **[LinkRide](https://github.com/Gabrielanie/linkride)** | Ride-sharing app for Android. | Kotlin · Jetpack Compose |
-| **[Anie Finance Tracker](https://github.com/Gabrielanie/Anie-finance-tracker)** | Personal finance app — Flutter mobile UI + Node.js REST API. | Flutter · Dart · Node.js |
-
-**More selected client work:** [Gisela Vogue](https://www.giselavogue.com) (fashion e-commerce, WooCommerce) · [Greensage](https://greensagebconsult.com/) (HR management system, Laravel) · [LGC Admin](https://lgc-admin-sooty.vercel.app) (e-learning dashboard, React) · La Reine Gold Academy (multi-language e-learning) · ACGC (professional association platform & member portal) · Camilla Brook School (school website + LMS, Laravel)
-
-→ Full write-ups for all of the above on [my portfolio](https://gabrielanie.github.io).
-
----
-
 ## Experience
 
 - **Fullstack Developer, Musenotes** — *Jan 2026–Present* · Maintaining a production AI transcription & content-analysis platform end-to-end (backend, frontend, AI integration, infra).
