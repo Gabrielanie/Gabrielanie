@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { User, Mail, MapPin, Zap, Download } from 'lucide-react';
+import { Mail, MapPin, Zap, Download } from 'lucide-react';
 import { personal } from '../../data/portfolio';
 import SectionHeading from '../ui/SectionHeading';
 
 const INFO_ROWS = [
-  { icon: <User size={16} />, label: 'Name', value: personal.name },
   { icon: <Mail size={16} />, label: 'Email', value: personal.email },
   { icon: <MapPin size={16} />, label: 'Location', value: personal.location },
 ];
@@ -23,9 +22,10 @@ export default function About() {
     <section id="about" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="About Me"
-          title="Turning ideas into "
-          accent="impactful products"
+          eyebrow="Meet the Founder"
+          title="The person behind "
+          accent="every build"
+          description="No handoffs, no account managers — you work directly with the engineer building your product."
         />
 
         <div ref={ref} className="grid items-start gap-12 lg:grid-cols-2">
@@ -54,6 +54,19 @@ export default function About() {
             {...anim(0.1)}
             className="rounded-2xl border border-white/10 bg-[#141414] p-6"
           >
+            <div className="mb-5 flex items-center gap-4">
+              <img
+                src="/images/profile.webp"
+                alt={personal.name}
+                loading="lazy"
+                className="h-16 w-16 shrink-0 rounded-xl object-cover"
+              />
+              <div>
+                <div className="font-display text-base font-semibold text-white">{personal.name}</div>
+                <div className="text-sm text-slate-500">Founder & Lead Engineer</div>
+              </div>
+            </div>
+
             <div className="flex flex-col divide-y divide-white/5">
               {INFO_ROWS.map(row => (
                 <div key={row.label} className="flex items-center gap-3.5 py-3.5 first:pt-0 last:pb-0">

@@ -1,5 +1,5 @@
 import { ArrowUp } from 'lucide-react';
-import { navLinks, personal, socialLinks } from '../data/portfolio';
+import { navLinks, personal, studio, socialLinks } from '../data/portfolio';
 import { scrollTo } from '../lib/scroll';
 
 export default function Footer() {
@@ -14,8 +14,8 @@ export default function Footer() {
               GA
             </div>
             <div>
-              <div className="font-display text-sm font-semibold text-white">{personal.name}</div>
-              <div className="text-xs text-slate-500">{personal.title}</div>
+              <div className="font-display text-sm font-semibold text-white">{studio.name}</div>
+              <div className="text-xs text-slate-500">{studio.tagline}</div>
             </div>
           </div>
 

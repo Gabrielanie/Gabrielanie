@@ -1,11 +1,13 @@
 import './index.css';
 import Navbar       from './components/Navbar';
 import Hero         from './components/sections/Hero';
-import About        from './components/sections/About';
-import Skills       from './components/sections/Skills';
+import Services     from './components/sections/Services';
 import Projects     from './components/sections/Projects';
-import Experience   from './components/sections/Experience';
+import Process      from './components/sections/Process';
 import Testimonials from './components/sections/Testimonials';
+import About        from './components/sections/About';
+import Experience   from './components/sections/Experience';
+import Skills       from './components/sections/Skills';
 import Contact      from './components/sections/Contact';
 import Footer       from './components/Footer';
 
@@ -16,11 +18,13 @@ export default function App() {
 
       <main>
         <Hero />
-        <About />
-        <Skills />
+        <Services />
         <Projects />
-        <Experience />
+        <Process />
         <Testimonials />
+        <About />
+        <Experience />
+        <Skills />
         <Contact />
       </main>
 
