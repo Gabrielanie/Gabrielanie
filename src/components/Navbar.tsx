@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { navLinks, personal } from '../data/portfolio';
+import { navLinks, studio } from '../data/portfolio';
 import { scrollTo } from '../lib/scroll';
 
 export default function Navbar() {
@@ -93,7 +93,7 @@ export default function Navbar() {
               GA
             </div>
             <span className="font-display text-sm font-semibold text-white">
-              {personal.name}
+              {studio.name}
             </span>
           </a>
 
@@ -122,12 +122,13 @@ export default function Navbar() {
               );
             })}
 
-            {/* Hire Me */}
+            {/* Start a Project */}
             <a
-              href={personal.socials.email}
+              href="#contact"
+              onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
               className="ml-2 hidden rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-5 py-2 text-sm font-semibold text-black shadow-md shadow-brand-600/25 transition-shadow hover:shadow-lg hover:shadow-brand-600/35 md:inline-flex"
             >
-              Hire Me
+              Start a Project
             </a>
 
             {/* Hamburger */}
@@ -174,10 +175,11 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href={personal.socials.email}
+              href="#contact"
+              onClick={e => { e.preventDefault(); setOpen(false); scrollTo('#contact'); }}
               className="mt-6 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-9 py-3 text-lg font-semibold text-black"
             >
-              Hire Me
+              Start a Project
             </a>
           </motion.div>
         )}

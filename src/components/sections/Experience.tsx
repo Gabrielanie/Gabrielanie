@@ -82,10 +82,10 @@ export default function Experience() {
     <section id="experience" className="relative z-10 bg-[#000000] px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
-          eyebrow="Work History"
-          title="My "
-          accent="Experience"
-          description="A track record of building products that matter, across industries and continents."
+          eyebrow="Track Record"
+          title="The experience behind "
+          accent="the studio"
+          description="Gabriel's career building products that matter, across industries and continents."
         />
 
         <div className="flex flex-col">

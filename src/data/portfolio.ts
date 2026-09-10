@@ -1,4 +1,11 @@
-import { Mail, Link2, Code2 } from 'lucide-react';
+import { Mail, Link2, Code2, Layout, Smartphone, Sparkles, ShoppingBag, Users } from 'lucide-react';
+
+export const studio = {
+  name: 'Gabriel Anie',
+  wordmark: 'GA',
+  tagline: 'A boutique studio for web, mobile & AI-integrated products.',
+  positioning: "We're a small, senior-led team — not a subcontracted agency — so the person who scopes your project is the person who builds it.",
+};
 
 export const personal = {
   name: 'Gabriel Anie',
@@ -41,12 +48,72 @@ export const socialLinks = [
 export type NavLink = { href: string; label: string };
 
 export const navLinks: NavLink[] = [
-  { href: '#home',       label: 'Home' },
-  { href: '#about',      label: 'About' },
-  { href: '#skills',     label: 'Skills' },
-  { href: '#projects',   label: 'Projects' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact',    label: 'Contact' },
+  { href: '#home',     label: 'Home' },
+  { href: '#services', label: 'Services' },
+  { href: '#work',     label: 'Work' },
+  { href: '#process',  label: 'Process' },
+  { href: '#about',    label: 'About' },
+  { href: '#contact',  label: 'Contact' },
+];
+
+export type Service = {
+  id: string;
+  title: string;
+  description: string;
+  Icon: typeof Layout;
+  deliverables: string[];
+};
+
+export const services: Service[] = [
+  {
+    id: 'web',
+    title: 'Web App Development',
+    description: 'Full-stack web applications and SaaS platforms built for speed, scale, and long-term maintainability.',
+    Icon: Layout,
+    deliverables: ['Next.js & React front-ends', 'Node.js / Laravel APIs', 'PostgreSQL & MySQL data layers', 'CI/CD & cloud deployment'],
+  },
+  {
+    id: 'mobile',
+    title: 'Mobile App Development',
+    description: 'Cross-platform iOS and Android apps that feel native, shipped from a single React Native or Flutter codebase.',
+    Icon: Smartphone,
+    deliverables: ['React Native & Flutter builds', 'Push notifications & offline sync', 'App Store / Play Store release', 'Native device integrations'],
+  },
+  {
+    id: 'ai',
+    title: 'AI Integration',
+    description: 'Practical AI features — not novelty demos — wired into real products with Claude, OpenAI, and speech APIs.',
+    Icon: Sparkles,
+    deliverables: ['LLM-powered product features', 'Prompt engineering & evaluation', 'Speech-to-text pipelines', 'Cost & latency optimisation'],
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-Commerce & CMS',
+    description: 'Fast, conversion-focused storefronts and content platforms on WordPress, WooCommerce, and headless CMS.',
+    Icon: ShoppingBag,
+    deliverables: ['WooCommerce storefronts', 'Payment gateway integration', 'Headless CMS builds', 'Performance & SEO tuning'],
+  },
+  {
+    id: 'consulting',
+    title: 'Technical Leadership',
+    description: 'Architecture reviews, engineering leadership, and hands-on mentoring for teams shipping under pressure.',
+    Icon: Users,
+    deliverables: ['Architecture & code review', 'Engineering team leadership', 'Developer mentoring', 'Technical due diligence'],
+  },
+];
+
+export type ProcessStep = {
+  step: string;
+  title: string;
+  description: string;
+};
+
+export const process: ProcessStep[] = [
+  { step: '01', title: 'Discover', description: "We start by understanding your goals, users, and constraints — no build begins without a clear brief." },
+  { step: '02', title: 'Design & Plan', description: 'We map the architecture and user experience up front, so the build has a solid foundation to move fast on.' },
+  { step: '03', title: 'Build', description: 'Iterative development with regular check-ins — you see real progress every week, not just at the end.' },
+  { step: '04', title: 'Ship', description: 'Rigorous QA, staged rollouts, and a considered launch — nothing goes live untested.' },
+  { step: '05', title: 'Support', description: 'We stay involved after launch — monitoring, fixing, and iterating as real usage comes in.' },
 ];
 
 export type SkillCategory = {
@@ -102,6 +169,15 @@ export const skills: SkillCategory[] = [
   },
 ];
 
+export type CaseStudyMetric = { label: string; value: string };
+
+export type CaseStudy = {
+  problem: string;
+  approach: string[];
+  outcome: string;
+  metrics?: CaseStudyMetric[];
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -114,6 +190,7 @@ export type Project = {
   image?: string;
   featured: boolean;
   color: string;
+  caseStudy?: CaseStudy;
 };
 
 export const projects: Project[] = [
@@ -128,6 +205,16 @@ export const projects: Project[] = [
     image: '/images/rateo.webp',
     featured: true,
     color: '#15803d',
+    caseStudy: {
+      problem: "Companies wanted honest feedback from employees, but existing tools weren't anonymous enough to build real trust.",
+      approach: [
+        "Built on Next.js 15's App Router with role-based auth so responses stay genuinely anonymous.",
+        'Added internationalisation so the same platform serves teams across multiple regions.',
+        'Shipped a live analytics dashboard so leadership sees sentiment trends without seeing who said what.',
+      ],
+      outcome: "Rate'O is live in production as an anonymous feedback platform, giving organisations a trustworthy channel for employee sentiment.",
+      metrics: [{ label: 'Status', value: 'Live in production' }, { label: 'Reach', value: 'Multi-region' }],
+    },
   },
   {
     id: 'gisela',
@@ -140,6 +227,16 @@ export const projects: Project[] = [
     image: '/images/gisela.webp',
     featured: true,
     color: '#0d9488',
+    caseStudy: {
+      problem: 'Gisela Vogue needed an online store that could handle real traffic and payments without the typical WooCommerce slowdowns.',
+      approach: [
+        'Built custom WooCommerce templates and optimised database queries for faster page loads.',
+        'Integrated Paystack for secure, local payment processing.',
+        'Added product filtering, wishlists, and a fully responsive layout.',
+      ],
+      outcome: 'The store now handles hundreds of daily visitors with meaningfully faster load times.',
+      metrics: [{ label: 'Online sales', value: '+40% in month 1' }, { label: 'Traffic', value: 'Hundreds of visitors/day' }],
+    },
   },
   {
     id: 'onthego',
@@ -152,6 +249,16 @@ export const projects: Project[] = [
     image: '/images/onthego.webp',
     featured: true,
     color: '#06b6d4',
+    caseStudy: {
+      problem: 'Millions of people across Africa needed a reliable way to find free Wi-Fi and food nearby — with patchy connectivity part of the problem.',
+      approach: [
+        'Built a single React Native codebase serving both iOS and Android.',
+        'Layered in offline caching so the app stays useful on a weak connection.',
+        'Backed it with a Node.js/Express REST API for real-time, location-based data.',
+      ],
+      outcome: 'OnTheGo shipped across multiple African countries and contributed to a reported increase in user adoption.',
+      metrics: [{ label: 'User adoption', value: '+40%' }, { label: 'Platforms', value: 'iOS & Android' }],
+    },
   },
   {
     id: 'greensage',
@@ -164,6 +271,16 @@ export const projects: Project[] = [
     image: '/images/greensage.webp',
     featured: true,
     color: '#22c55e',
+    caseStudy: {
+      problem: 'Greensage needed to replace scattered spreadsheets and manual processes with one system for payroll, performance, and training.',
+      approach: [
+        'Built a Laravel + React HRMS covering onboarding, payroll, and performance reviews.',
+        'Added role-based access control and exportable audit trails for compliance.',
+        'Designed the UI around the daily workflows HR teams actually use.',
+      ],
+      outcome: "Greensage's team now runs HR operations through one platform, in place of manual processes.",
+      metrics: [{ label: 'Adoption', value: 'Used daily by HR team' }],
+    },
   },
   {
     id: 'lgc',
@@ -176,6 +293,16 @@ export const projects: Project[] = [
     image: '/images/lgc.webp',
     featured: true,
     color: '#f59e0b',
+    caseStudy: {
+      problem: 'LGC needed a single dashboard to run their e-learning business — courses, orders, customers, and content — without juggling separate tools.',
+      approach: [
+        'Built the dashboard in React 19 + Redux Toolkit with RTK Query for a fast, consistent data layer.',
+        'Shipped live analytics for revenue, enrollments, and conversion.',
+        'Covered course management, article publishing, vouchers, and customer tracking in one accessible UI.',
+      ],
+      outcome: "LGC's team manages the full learning platform — content, commerce, and customers — from a single admin dashboard.",
+      metrics: [{ label: 'Status', value: 'Live admin platform' }],
+    },
   },
   {
     id: 'analytics',
@@ -196,6 +323,16 @@ export const projects: Project[] = [
     longDescription: "An AI-powered cross-platform travel application for intelligent trip planning and destination discovery. Integrates multiple AI services to deliver personalised travel recommendations, automated itinerary generation, and a conversational travel assistant. Users can plan multi-day trips with budget tracking and access real-time flight and hotel data.",
     featured: true,
     color: '#0891b2',
+    caseStudy: {
+      problem: 'Trip planning is scattered across apps — flights, hotels, itineraries. Voyage Pal set out to bring it into one AI-guided flow.',
+      approach: [
+        'Built a cross-platform React Native app integrating Claude and OpenAI for personalised recommendations.',
+        'Connected the Amadeus API for real-time flight and hotel data.',
+        'Added budget tracking and automated, editable itinerary generation.',
+      ],
+      outcome: 'Voyage Pal gives travellers an AI-guided planning flow, from destination discovery through to a bookable itinerary.',
+      metrics: [{ label: 'Capability', value: 'AI-guided trip planning' }],
+    },
   },
   {
     id: 'lareinegold',
@@ -206,6 +343,16 @@ export const projects: Project[] = [
     longDescription: "A feature-rich multi-language e-learning web application supporting course management, animated UI interactions, and professional services. Built with React 19, TypeScript, and a robust global state setup — featuring full internationalisation, accessible component architecture, and a polished animated interface.",
     featured: true,
     color: '#d97706',
+    caseStudy: {
+      problem: 'La Reine Gold Academy needed a multi-language platform to manage courses and reach students across regions.',
+      approach: [
+        'Built with React 19, TypeScript, and Redux Toolkit for a robust, scalable front-end.',
+        'Added full internationalisation with i18next.',
+        'Focused on accessible component architecture and polished, animated interactions.',
+      ],
+      outcome: 'The academy runs course management and student-facing content through one multi-language platform.',
+      metrics: [{ label: 'Reach', value: 'Multi-language' }],
+    },
   },
   {
     id: 'praxispq',
@@ -217,6 +364,16 @@ export const projects: Project[] = [
     liveUrl: 'https://project-kio2t.vercel.app',
     featured: true,
     color: '#6366f1',
+    caseStudy: {
+      problem: 'Organisations needed to run structured DEIB and culture-change assessments at scale, with AI-generated insight rather than raw survey data.',
+      approach: [
+        'Built a multi-tenant SaaS on React 18, Node.js, and PostgreSQL, containerised with Docker.',
+        'Built a global question bank supporting multiple assessment formats.',
+        'Made the frontend WCAG 2.2 AA compliant and added bulk import plus PDF report export.',
+      ],
+      outcome: 'PraxisPQ delivers AI-generated organisational insight reports across DEIB, workforce transformation, and culture-change readiness — built to serve multiple client organisations from one platform.',
+      metrics: [{ label: 'Accessibility', value: 'WCAG 2.2 AA' }, { label: 'Architecture', value: 'Multi-tenant SaaS' }],
+    },
   },
   {
     id: 'acgc',
@@ -227,6 +384,16 @@ export const projects: Project[] = [
     longDescription: "A comprehensive membership community platform for a professional association. The public site features an advisory board, team directory, events calendar, resource hub, insights blog, careers board, and conference registration with integrated payments. The authenticated member portal includes a personalised dashboard, real-time messaging, member directory, rich-text content management, and a gamified leaderboard — with full transactional email and newsletter capabilities.",
     featured: true,
     color: '#0ea5e9',
+    caseStudy: {
+      problem: 'A professional association needed both a public-facing site and a private member portal — events, payments, messaging, and community — in one platform.',
+      approach: [
+        'Built the public site (advisory board, events, resources, blog, careers) alongside a separate authenticated member portal.',
+        'Integrated Stripe for conference registration and payments, JWT for member auth.',
+        'Added real-time messaging, a member directory, and a gamified leaderboard.',
+      ],
+      outcome: "ACGC runs its full member experience — from public recruitment to private community engagement — on one platform.",
+      metrics: [{ label: 'Scope', value: 'Public site + member portal' }],
+    },
   },
   {
     id: 'finance-tracker',

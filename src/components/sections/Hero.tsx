@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail, Code2 } from 'lucide-react';
-import { personal, socialLinks } from '../../data/portfolio';
+import { ArrowRight, Mail, Code2 } from 'lucide-react';
+import { personal, studio, socialLinks } from '../../data/portfolio';
 import { scrollTo } from '../../lib/scroll';
 
 export default function Hero() {
@@ -20,40 +20,45 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="mb-7 inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3.5 py-1.5 text-sm font-medium text-brand-300"
+              className="mb-5 flex flex-wrap items-center gap-3"
             >
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
-              {personal.availability}
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate-300">
+                {studio.wordmark} · Studio
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3.5 py-1.5 text-sm font-medium text-brand-300">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
+                {personal.availability}
+              </span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.05 }}
-              className="mb-3 text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl"
+              className="mb-4 text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl"
             >
-              Hi, I'm{' '}
+              We build products that{' '}
               <span className="bg-linear-to-r from-brand-400 to-blue-400 bg-clip-text text-transparent">
-                {personal.name}
+                ship, scale & hold up
               </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="mb-5 text-lg font-semibold text-slate-300"
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="mb-4 max-w-lg text-base leading-relaxed text-slate-400"
             >
-              {personal.roles.slice(0, 2).join(' · ')}
+              {studio.name} designs and builds performant, scalable web, mobile & AI-integrated products — from SaaS platforms and enterprise systems to cross-platform mobile apps.
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15 }}
-              className="mb-8 max-w-lg text-base leading-relaxed text-slate-400"
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mb-8 text-sm text-slate-500"
             >
-              {personal.tagline}
+              Led by <span className="font-semibold text-slate-300">{personal.name}</span>, a senior full-stack engineer with {personal.stats[0].value} years shipping production software.
             </motion.p>
 
             <motion.div
@@ -79,17 +84,18 @@ export default function Hero() {
               className="mb-8 flex flex-wrap gap-3"
             >
               <a
-                href="#projects"
-                onClick={e => { e.preventDefault(); scrollTo('#projects'); }}
+                href="#work"
+                onClick={e => { e.preventDefault(); scrollTo('#work'); }}
                 className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-6 py-3 text-sm font-semibold text-black shadow-md shadow-brand-600/25 transition-shadow hover:shadow-lg hover:shadow-brand-600/35"
               >
-                View My Work <ArrowDown size={15} />
+                View Our Work <ArrowRight size={15} />
               </a>
               <a
-                href={personal.socials.email}
+                href="#contact"
+                onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/15 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/5"
               >
-                <Mail size={15} /> Get In Touch
+                <Mail size={15} /> Start a Project
               </a>
             </motion.div>
 

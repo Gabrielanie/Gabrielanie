@@ -10,13 +10,13 @@ export default function Skills() {
   const active = skills.find(s => s.id === activeId)!;
 
   return (
-    <section id="skills" className="relative z-10 bg-[#000000] px-6 py-20">
+    <section id="skills" className="relative z-10 bg-[#0a0a0a] px-6 py-20">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
-          eyebrow="Technical Skills"
-          title="My "
-          accent="Tech Stack"
-          description="Tools and technologies I use to build scalable, performant applications."
+          eyebrow="Tools & Technologies"
+          title="What we "
+          accent="build with"
+          description="The stack behind every project — chosen for reliability, not resume-padding."
         />
 
         <div ref={ref}>

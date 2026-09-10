@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Code2, X } from 'lucide-react';
+import { ExternalLink, Code2, X, Target, Compass, TrendingUp } from 'lucide-react';
 import { projects, type Project } from '../../data/portfolio';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -28,7 +28,7 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
       onClick={onClick}
       role="button"
       tabIndex={0}
-      aria-label={`View details for ${project.title}`}
+      aria-label={`View case study for ${project.title}`}
       onKeyDown={e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -105,7 +105,9 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
               </a>
             )}
           </div>
-          <span className="text-xs text-slate-500">Details →</span>
+          <span className="text-xs text-slate-500">
+            {project.caseStudy ? 'Case study →' : 'Details →'}
+          </span>
         </div>
       </div>
     </motion.article>
@@ -116,6 +118,7 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
 function Modal({ project, onClose }: { project: Project; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const cs = project.caseStudy;
 
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null;
@@ -209,6 +212,50 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
             {project.longDescription}
           </p>
 
+          {/* Case study: problem / approach / outcome */}
+          {cs && (
+            <div className="mb-7 flex flex-col gap-5">
+              {cs.metrics && cs.metrics.length > 0 && (
+                <div className="flex flex-wrap gap-3">
+                  {cs.metrics.map(m => (
+                    <div key={m.label} className="rounded-xl border border-brand-500/30 bg-brand-500/10 px-4 py-2.5">
+                      <div className="text-sm font-bold text-brand-300">{m.value}</div>
+                      <div className="text-[0.68rem] uppercase tracking-wide text-slate-500">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="flex gap-3">
+                <Target size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                <div>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-500">The Problem</p>
+                  <p className="text-sm leading-relaxed text-slate-300">{cs.problem}</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Compass size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                <div>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-500">Our Approach</p>
+                  <ul className="flex flex-col gap-1.5">
+                    {cs.approach.map((step, i) => (
+                      <li key={i} className="text-sm leading-relaxed text-slate-300">{step}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <TrendingUp size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                <div>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-500">The Outcome</p>
+                  <p className="text-sm leading-relaxed text-slate-300">{cs.outcome}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Tech */}
           <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-slate-500">
             Tech Stack
@@ -263,13 +310,13 @@ export default function Projects() {
     : projects.filter(p => p.category.includes(filter));
 
   return (
-    <section id="projects" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
+    <section id="work" className="relative z-10 bg-[#000000] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="My Work"
-          title="Featured "
-          accent="Projects"
-          description="Real-world applications I've designed, built, and shipped."
+          eyebrow="Case Studies"
+          title="Selected "
+          accent="work"
+          description="Real products we've designed, built, and shipped — with the problem, approach, and outcome behind each one."
         />
 
         {/* Filters */}

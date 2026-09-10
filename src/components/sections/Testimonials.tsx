@@ -8,13 +8,13 @@ export default function Testimonials() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="testimonials" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
+    <section id="testimonials" className="relative z-10 bg-[#000000] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Testimonials"
           title="What clients "
-          accent="say about me"
-          description="Feedback from people I've had the pleasure of working with."
+          accent="say about us"
+          description="Feedback from people we've had the pleasure of working with."
         />
 
         <div ref={ref} className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
