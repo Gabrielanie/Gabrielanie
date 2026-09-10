@@ -1,22 +1,16 @@
-import { Mail, Link2, Code2, ArrowUp } from 'lucide-react';
-import { navLinks, personal } from '../data/portfolio';
+import { ArrowUp } from 'lucide-react';
+import { navLinks, personal, socialLinks } from '../data/portfolio';
 import { scrollTo } from '../lib/scroll';
-
-const SOCIALS = [
-  { href: personal.socials.github,   icon: <Code2 size={17} />, label: 'GitHub' },
-  { href: personal.socials.linkedin, icon: <Link2 size={17} />, label: 'LinkedIn' },
-  { href: personal.socials.email,    icon: <Mail  size={17} />, label: 'Email' },
-];
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/10 bg-[#0b0b12] px-6 py-11">
+    <footer className="relative z-10 border-t border-white/10 bg-[#0a0a0a] px-6 py-11">
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
         {/* Top row */}
         <div className="flex flex-wrap items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-brand-500 to-blue-500 font-display text-xs font-bold text-white">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-brand-500 to-blue-500 font-display text-xs font-bold text-black">
               GA
             </div>
             <div>
@@ -41,7 +35,7 @@ export default function Footer() {
 
           {/* Socials */}
           <div className="flex items-center gap-2">
-            {SOCIALS.map(s => (
+            {socialLinks.map(s => (
               <a
                 key={s.label}
                 href={s.href}
@@ -50,7 +44,7 @@ export default function Footer() {
                 aria-label={s.label}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-colors hover:border-brand-500/40 hover:text-brand-400"
               >
-                {s.icon}
+                <s.Icon size={17} />
               </a>
             ))}
           </div>

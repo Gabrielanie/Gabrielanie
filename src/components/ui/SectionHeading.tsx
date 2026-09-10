@@ -19,7 +19,7 @@ export default function SectionHeading({ eyebrow, title, accent, description }: 
       transition={{ duration: 0.45 }}
       className="mb-16 text-center"
     >
-      <span className="mb-3 inline-block rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-white shadow-sm">
+      <span className="mb-3 inline-block rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-black shadow-sm">
         {eyebrow}
       </span>
 

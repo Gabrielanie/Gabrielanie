@@ -20,7 +20,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="relative z-10 bg-[#0b0b12] px-6 py-28">
+    <section id="about" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="About Me"
@@ -43,7 +43,7 @@ export default function About() {
               {...anim(0.3)}
               href="/Gabriel_Udoh.pdf"
               download="Gabriel_Udoh.pdf"
-              className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-md shadow-brand-600/20 transition-shadow hover:shadow-lg hover:shadow-brand-600/30"
+              className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-7 py-3 text-sm font-semibold text-black shadow-md shadow-brand-600/20 transition-shadow hover:shadow-lg hover:shadow-brand-600/30"
             >
               <Download size={15} /> Download CV
             </motion.a>
@@ -52,7 +52,7 @@ export default function About() {
           {/* Info card */}
           <motion.div
             {...anim(0.1)}
-            className="rounded-2xl border border-white/10 bg-[#0d0d17] p-6"
+            className="rounded-2xl border border-white/10 bg-[#141414] p-6"
           >
             <div className="flex flex-col divide-y divide-white/5">
               {INFO_ROWS.map(row => (

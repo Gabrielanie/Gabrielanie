@@ -4,16 +4,30 @@
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede9fe;
-  --color-brand-200: #ddd6fe;
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
+  /* Primary — Electric Kiwi lime */
+  --color-brand-50: #f7ffe0;
+  --color-brand-100: #eeffb8;
+  --color-brand-200: #e0ff80;
+  --color-brand-300: #dfff00;
+  --color-brand-400: #ccff00;
+  --color-brand-500: #b0e600;
+  --color-brand-600: #94cc00;
+  --color-brand-700: #5c7a00;
+  --color-brand-800: #3d5200;
+  --color-brand-900: #263300;
+
+  /* Secondary — Electric Kiwi tangy yellow (overrides Tailwind's default blue-*) */
+  --color-blue-50: #fffff0;
+  --color-blue-100: #ffffc2;
+  --color-blue-200: #ffff80;
+  --color-blue-300: #ffff40;
+  --color-blue-400: #ffff00;
+  --color-blue-500: #e6e600;
+  --color-blue-600: #cccc00;
+  --color-blue-700: #999900;
+  --color-blue-800: #666600;
+  --color-blue-900: #333300;
+  --color-blue-950: #1a1a00;
 }
 
 @layer base {
@@ -30,7 +44,7 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #08080d;
+    background-color: #000000;
     color: #e2e8f0;
     line-height: 1.6;
     overflow-x: hidden;
@@ -56,8 +70,8 @@
   }
 
   ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #08080d; }
-  ::-webkit-scrollbar-thumb { background: #3f3f52; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: #000000; }
+  ::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 4px; }
 
-  ::selection { background: rgba(124, 58, 237, 0.35); color: #f5f3ff; }
+  ::selection { background: rgba(204, 255, 0, 0.4); color: #0a0a0a; }
 }

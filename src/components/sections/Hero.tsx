@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail, Code2, Link2 } from 'lucide-react';
-import { personal } from '../../data/portfolio';
+import { ArrowDown, Mail, Code2 } from 'lucide-react';
+import { personal, socialLinks } from '../../data/portfolio';
+import { scrollTo } from '../../lib/scroll';
 
 export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-18">
       {/* Decorative glow backdrop */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[#08080d]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[#000000]" />
       <div className="pointer-events-none absolute -top-32 -left-24 -z-10 h-96 w-96 rounded-full bg-brand-600/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -right-24 -z-10 h-112 w-md rounded-full bg-blue-600/15 blur-3xl" />
 
@@ -79,8 +80,8 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                onClick={e => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition-shadow hover:shadow-lg hover:shadow-brand-600/35"
+                onClick={e => { e.preventDefault(); scrollTo('#projects'); }}
+                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-6 py-3 text-sm font-semibold text-black shadow-md shadow-brand-600/25 transition-shadow hover:shadow-lg hover:shadow-brand-600/35"
               >
                 View My Work <ArrowDown size={15} />
               </a>
@@ -98,11 +99,7 @@ export default function Hero() {
               transition={{ duration: 0.4, delay: 0.3 }}
               className="flex items-center gap-3"
             >
-              {[
-                { href: personal.socials.github,   icon: <Code2 size={18} />, label: 'GitHub' },
-                { href: personal.socials.linkedin,  icon: <Link2 size={18} />, label: 'LinkedIn' },
-                { href: personal.socials.email,     icon: <Mail size={18} />,  label: 'Email' },
-              ].map(s => (
+              {socialLinks.map(s => (
                 <a
                   key={s.label}
                   href={s.href}
@@ -111,7 +108,7 @@ export default function Hero() {
                   aria-label={s.label}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-colors hover:border-brand-500/40 hover:text-brand-300"
                 >
-                  {s.icon}
+                  <s.Icon size={18} />
                 </a>
               ))}
             </motion.div>
@@ -130,6 +127,7 @@ export default function Hero() {
                 <img
                   src="/images/profile.webp"
                   alt={personal.name}
+                  fetchPriority="high"
                   className="aspect-square w-full object-cover"
                 />
               </div>
@@ -139,7 +137,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
-                className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-[#0d0d17] px-5 py-3.5 shadow-xl"
+                className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-[#141414] px-5 py-3.5 shadow-xl"
               >
                 <div className="bg-linear-to-r from-brand-400 to-blue-400 bg-clip-text font-display text-2xl font-bold text-transparent">
                   {personal.stats[0].value}
@@ -152,7 +150,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.5, rotate: -12 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{ delay: 0.75, duration: 0.4 }}
-                className="absolute -top-4 -right-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-brand-500 to-blue-500 text-white shadow-lg"
+                className="absolute -top-4 -right-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-brand-500 to-blue-500 text-black shadow-lg"
               >
                 <Code2 size={20} />
               </motion.div>
