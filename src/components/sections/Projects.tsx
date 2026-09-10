@@ -36,7 +36,7 @@ function Card({ project, onClick, index }: { project: Project; onClick: () => vo
         }
       }}
       style={{ '--accent': project.color } as CSSProperties}
-      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] transition-all hover:-translate-y-1 hover:border-(--accent) hover:shadow-lg"
+      className="flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all hover:-translate-y-1 hover:border-(--accent) hover:shadow-lg"
     >
       {/* Image preview or colour bar */}
       {project.image ? (
@@ -171,7 +171,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         exit={{ scale: 0.97, opacity: 0 }}
         transition={{ duration: 0.2 }}
         onClick={e => e.stopPropagation()}
-        className="relative m-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] shadow-2xl"
+        className="relative m-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#141414] shadow-2xl"
       >
         <div className="h-1.5" style={{ background: project.color }} />
 
@@ -231,7 +231,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-shadow hover:shadow-lg hover:shadow-brand-600/30"
+                className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-brand-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-black transition-shadow hover:shadow-lg hover:shadow-brand-600/30"
               >
                 <ExternalLink size={14} /> Live Demo
               </a>
@@ -263,7 +263,7 @@ export default function Projects() {
     : projects.filter(p => p.category.includes(filter));
 
   return (
-    <section id="projects" className="relative z-10 bg-[#0b0b12] px-6 py-28">
+    <section id="projects" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="My Work"
@@ -280,7 +280,7 @@ export default function Projects() {
               onClick={() => setFilter(f.id)}
               className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                 filter === f.id
-                  ? 'border-transparent bg-linear-to-r from-brand-600 to-blue-600 text-white'
+                  ? 'border-transparent bg-linear-to-r from-brand-600 to-blue-600 text-black'
                   : 'border-white/10 bg-white/5 text-slate-400 hover:border-white/20'
               }`}
             >

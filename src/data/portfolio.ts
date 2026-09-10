@@ -1,3 +1,5 @@
+import { Mail, Link2, Code2 } from 'lucide-react';
+
 export const personal = {
   name: 'Gabriel Anie',
   fullName: 'Gabriel Anietie Udoh',
@@ -21,7 +23,7 @@ export const personal = {
   socials: {
     github: 'https://github.com/gabrielanie',
     linkedin: 'https://www.linkedin.com/in/gabriel-udoh-85974616b/',
-    email: 'mailto:younganiel@gmail.com',
+    email: 'mailto:younganiel@gmail.com?subject=Let%27s%20work%20together',
   },
   stats: [
     { value: '6+', label: 'Years Experience' },
@@ -29,6 +31,12 @@ export const personal = {
     { value: '15+', label: 'Happy Clients' },
   ],
 };
+
+export const socialLinks = [
+  { href: personal.socials.github, Icon: Code2, label: 'GitHub' },
+  { href: personal.socials.linkedin, Icon: Link2, label: 'LinkedIn' },
+  { href: personal.socials.email, Icon: Mail, label: 'Email' },
+];
 
 export type NavLink = { href: string; label: string };
 
@@ -308,7 +316,6 @@ export const experience: Experience[] = [
     role: 'Freelance Web Developer & Digital Strategist',
     company: 'Self-Employed',
     period: '2018 – Present',
-    current: true,
     location: 'Remote · Worldwide',
     achievements: [
       'Running an independent practice spanning 8+ years, partnering with SMEs across Nigeria and the UK to deliver end-to-end digital solutions — from custom websites and e-commerce stores to payment integrations and brand strategy, serving as both a technical partner and digital advisor for growing businesses',
@@ -346,7 +353,7 @@ export const testimonials: Testimonial[] = [
     quote: "Working with Gabriel on our HR software was a game-changer. He transformed complex requirements into an intuitive platform that our team loves using daily.",
   },
   {
-    name: 'Joshep Udu',
+    name: 'Joseph Udu',
     role: 'Product Manager',
     company: 'Spencer Venture Studio',
     initials: 'JU',

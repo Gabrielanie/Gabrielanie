@@ -20,7 +20,7 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
       <div className="flex shrink-0 flex-col items-center">
         <div
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold ${
-            exp.current ? 'bg-linear-to-br from-brand-500 to-blue-500 text-white' : 'border border-white/10 bg-white/5 text-slate-500'
+            exp.current ? 'bg-linear-to-br from-brand-500 to-blue-500 text-black' : 'border border-white/10 bg-white/5 text-slate-500'
           }`}
         >
           {String(index + 1).padStart(2, '0')}
@@ -32,7 +32,7 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
       <div
         className={`flex-1 rounded-2xl border p-6 transition-shadow hover:shadow-lg ${
           isLast ? '' : 'mb-6'
-        } ${exp.current ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/10 bg-[#0d0d17]'}`}
+        } ${exp.current ? 'border-brand-500/30 bg-brand-500/5' : 'border-white/10 bg-[#141414]'}`}
       >
         {/* Role row */}
         <div className="mb-0.5 flex flex-wrap items-center gap-2">
@@ -79,7 +79,7 @@ function ExperienceItem({ exp, index, isLast }: { exp: ExpType; index: number; i
 /* ── Section ── */
 export default function Experience() {
   return (
-    <section id="experience" className="relative z-10 bg-[#08080d] px-6 py-28">
+    <section id="experience" className="relative z-10 bg-[#000000] px-6 py-28">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Work History"

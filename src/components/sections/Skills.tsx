@@ -10,7 +10,7 @@ export default function Skills() {
   const active = skills.find(s => s.id === activeId)!;
 
   return (
-    <section id="skills" className="relative z-10 bg-[#08080d] px-6 py-20">
+    <section id="skills" className="relative z-10 bg-[#000000] px-6 py-20">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Technical Skills"
@@ -58,7 +58,7 @@ export default function Skills() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25 }}
-              className="rounded-2xl border-2 bg-[#0d0d17] p-8"
+              className="rounded-2xl border-2 bg-[#141414] p-8"
               style={{ borderColor: `${active.color}40` }}
             >
               <div className="flex flex-wrap justify-center gap-2.5">
@@ -82,7 +82,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25, duration: 0.4 }}
             className="mt-5 grid gap-3"
-            style={{ gridTemplateColumns: `repeat(${skills.length}, 1fr)` }}
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(5.5rem, 1fr))' }}
           >
             {skills.map(skill => (
               <button

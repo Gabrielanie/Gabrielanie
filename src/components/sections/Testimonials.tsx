@@ -8,7 +8,7 @@ export default function Testimonials() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="relative z-10 bg-[#0b0b12] px-6 py-28">
+    <section id="testimonials" className="relative z-10 bg-[#0a0a0a] px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Testimonials"
@@ -24,7 +24,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d17] p-6"
+              className="relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-[#141414] p-6"
             >
               <div className="absolute inset-x-0 top-0 h-1" style={{ background: t.color }} />
               <Quote size={24} className="absolute right-5 top-7 text-white/5" />
